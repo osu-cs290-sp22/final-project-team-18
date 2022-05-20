@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Unfortunately,</title>
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Maru+Gothic:wght@300;400&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css" media="screen">
+
+        <script src="index.js" charset="utf-8" defer></script>
+
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar">
+                <ul class="navlist">
+                    <li class="navlink site-title">Unfortunately,</li>
+                    <li id="navlink instructions"><a href="#">Instructions</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="fortune-container">
+           
+
+            <div id="finding-fortune">
+                <!-- can change this part with js to change for every level -->
+                <div class="fortune-level-instructions">
+                    <h2>Select a color!</h2>
+                </div>
+    
+                <div id="fortune-teller-img">
+                    <img src="http://cdn.shopify.com/s/files/1/0262/0971/4198/products/cd12091-cat-fortune-teller-pop-up-birthday-card_1200x1200.jpg?v=1601655207" alt="Fortune Teller Animation!!"> 
+                </div>
+    
+                <div class="fortune-button-box">
+
+                    <!-- thought i could make these funny hehe -->
+                    <button type="button" class="fortune-button" id="button-1">Sunshiney Blue</button>
+                    <button type="button" class="fortune-button" id="button-2">Toxic Positivity Pink</button>
+                    <button type="button" class="fortune-button" id="button-3">Morally Gray</button>
+                    <button type="button" class="fortune-button" id="button-4">Indecisively(?) White</button>
+                </div>
+            </div>
+            
+            <div id="display-fortune">
+                <div class="fortune-title">
+                    <h1>Final Fortune</h1>
+                </div>
+
+                <!-- add final fortune html here -->
+            </div>
+
+
+
+
+        </main>
+
+        <div id="modal-backdrop" class="hide"></div>
+        <div id="instructions-modal" class="hide">
+            <div class="modal-header">
+                <h3>Instructions</h3>
+                <button type="button" class="modal-close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="instructions-text">
+                    <p>
+                        Welcome to, Unfortunately. To begin, enter your name. This game will work like 
+                        any paper fortune teller you might have used before. First, select a color, then some
+                        numbers to reveal your fortune. (wooo spookyy) I hope you get lucky or unlucky....
+                    </p>
+                </div>
+                <div class="name-input-element">
+                    <label for="name-input">Name</label>
+                    <input type="text" id="name-input">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="modal-start-button">Start</button>
+            </div>
+        </div>
+
+        
+    </body>
+   
+
+
+</html>
