@@ -73,9 +73,7 @@ a {
   padding: 0;
   cursor: pointer;
 }
-
-.modal-body {
-  padding: 20px;
+.modal-dialog {
   width: auto;
   max-width: 600px;
   min-width: 350px;
@@ -83,6 +81,17 @@ a {
   margin: 40px auto;
   background-color: #fff;
   border-radius: 15px;
+}
+.modal-body {
+  /* padding: 20px;
+  width: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px; */
+  padding: 20px;
 }
 
 .twit-input-element {
@@ -123,8 +132,9 @@ a {
   border: 1px solid #333;
   border-radius: 5px;
   padding: 10px;
-  margin-right: 20px;
+  margin-right: 50px;
   cursor: pointer;
+  font-family: Montserrat, Helvetica, sans-serif;
 }
 
 .modal-footer .modal-start-button:hover {
