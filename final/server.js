@@ -14,8 +14,10 @@ app.engine('.handlebars', exphbs.engine({
 
 app.set('view engine', '.handlebars');
 
+app.get('/fortune', function(req, res){
+    res.status(200).render('findFortune')
+})
 
-app.get('/', function(req, res){
-
-  
+app.listen(port, function(){
+    console.log("== Server is listening on port", port); 
 })
