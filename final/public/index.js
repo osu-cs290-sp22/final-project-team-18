@@ -1,18 +1,21 @@
 var start = document.getElementsByClassName("modal-start-button")[0]
-var close=document.getElementsByClassName("modal-close-button ")[0]
+var close=document.getElementsByClassName("modal-close-button")[0]
 var modal_drop= document.getElementById("modal-backdrop")
 var instructions=document.getElementById("instructions-modal")
 
-start.onclick = function() {
+console.log("=== close", close)
+
+close.addEventListener('click', function handleClick() {
     modal_drop.style.display = "none";
     instructions.style.display="none";
-}
+});
 
-close.onclick = function() {
-    modal_drop.style.display = "none";
-    instructions.style.display="none";
-}
-
+start.addEventListener('click', function handleClick() {
+  modal_drop.style.display = "none";
+  instructions.style.display="none";
+  var name=document.getElementById("name-input").value;
+  console.log("==name",name);
+});
 
 function changeBtn_value(btn,val){
  btn.innerText=val;
@@ -38,37 +41,37 @@ function changeBtn(btn,clicked){
   }
   else if(btn.innerText=="3"){
     changeBtn_value(btn,"5")
-    
+
   }
   else if(btn.innerText=="4"){
     changeBtn_value(btn,"7")
-    
+
   }
   else if(btn.innerText=="5"){
     changeBtn_value(btn,"4")
   }
   else if(btn.innerText=="6"){
     changeBtn_value(btn,"3")
-    
+
   }
   else if(btn.innerText=="7"){
     changeBtn_value(btn,"2")
-    
+
   }
   else if(btn.innerText=="8"){
     changeBtn_value(btn,"1")
   }
   else if(btn.innerText=="Sunshiney Blue"){
     changeBtn_value(btn,"1")
-    
+
   }
   else if(btn.innerText=="Toxic Positivity Pink"){
     changeBtn_value(btn,"2")
-    
+
   }
   else if(btn.innerText=="Morally Gray"){
     changeBtn_value(btn,"3")
-    
+
   }
   else if(btn.innerText=="Indecisively(?) White"){
     changeBtn_value(btn,"4")
@@ -85,14 +88,6 @@ var btn2 = document.getElementById('button-2');
 var btn3 = document.getElementById('button-3');
 var btn4 = document.getElementById('button-4');
 var onStart=document.getElementsByClassName("modal-start-button")[0];
-
-
-onStart.addEventListener('click', function handleClick() {
-  var name=document.getElementById("name-input").value;
-  console.log("==name",name);
-
-
-});
 
 btn1.addEventListener('click', function handleClick() {
   changeBtn(btn1,btn1)

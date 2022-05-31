@@ -12,20 +12,15 @@
 
         <link rel="stylesheet" href="style.css" media="screen">
 
-        <script src="index.js" charset="utf-8" defer></script>
+        <script src="/index.js" charset="utf-8" defer></script>
 
     </head>
 
     <body>
-      <header>
-          <a href="#"><h1 class="site-title">Unfortunately,</h1></a>
-          <nav class="navbar">
-              <ul class="navlist">
-                  <li id="navlink instructions"><a href="#">Instructions</a></li>
-              </ul>
-          </nav>
-      </header>
+
+      {{>header}}
       {{{body}}}
+      {{>modal}}
     </body>
 
 
