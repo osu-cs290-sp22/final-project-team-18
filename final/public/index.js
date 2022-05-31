@@ -1,7 +1,15 @@
 var start = document.getElementsByClassName("modal-start-button")[0]
-var close=document.getElementsByClassName("modal-close-button")[0]
-var modal_drop= document.getElementById("modal-backdrop")
-var instructions=document.getElementById("instructions-modal")
+var close = document.getElementsByClassName("modal-close-button")[0]
+var modal_drop = document.getElementById("modal-backdrop")
+var instructions = document.getElementById("instructions-modal")
+var name = " "
+var button_box = document.getElementsByClassName("fortune-button-box")[0]
+
+var buttons = []
+
+window.onload = function(){
+  buttons = Array.from(document.getElementsByClassName('fortune-button'))
+}
 
 console.log("=== close", close)
 
@@ -13,8 +21,8 @@ close.addEventListener('click', function handleClick() {
 start.addEventListener('click', function handleClick() {
   modal_drop.style.display = "none";
   instructions.style.display="none";
-  var name=document.getElementById("name-input").value;
-  console.log("==name",name);
+  name = document.getElementById("name-input").value;
+  
 });
 
 function changeBtn_value(btn,val){
@@ -31,7 +39,7 @@ var userFinalchoice=""
 
 function changeBtn(btn,clicked){
   numBtclicked++
-  if(btn.innerHTML=="1"){
+  if(btn.innerText=="1"){
     changeBtn_value(btn,"6")
 
   }
@@ -76,8 +84,9 @@ function changeBtn(btn,clicked){
   else if(btn.innerText=="Indecisively(?) White"){
     changeBtn_value(btn,"4")
   }
-  if(numBtclicked==12){
-    userFinalchoice=clicked.innerText
+  if(numBtclicked == 12){
+    userFinalchoice = clicked.innerText
+    displayFortune()
     console.log("==user string",userFinalchoice);
   }
 }
@@ -102,19 +111,38 @@ btn2.addEventListener('click', function handleClick() {
   changeBtn(btn4,btn2)
   });
 
-  btn3.addEventListener('click', function handleClick() {
-    changeBtn(btn3,btn3)
-    changeBtn(btn1,btn3)
-    changeBtn(btn2,btn3)
-    changeBtn(btn4,btn3)
-  });
-  btn4.addEventListener('click', function handleClick() {
-    changeBtn(btn4,btn4)
-    changeBtn(btn3,btn4)
-    changeBtn(btn2,btn4)
-    changeBtn(btn1,btn4)
-  });
+btn3.addEventListener('click', function handleClick() {
+  changeBtn(btn3,btn3)
+  changeBtn(btn1,btn3)
+  changeBtn(btn2,btn3)
+  changeBtn(btn4,btn3)
+});
 
+btn4.addEventListener('click', function handleClick() {
+  changeBtn(btn4,btn4)
+  changeBtn(btn3,btn4)
+  changeBtn(btn2,btn4)
+  changeBtn(btn1,btn4)
+});
+
+
+function displayFortune(){
+  console.log("works")
+  // document.getElementsByClassName("fortune-container")[0].style.display = "none"
+  for(var i = 0; i < buttons.length; i++){
+    button_box.removeChild(buttons[i])
+  }
+
+  //get fortune to display when the button is clicked 
+  //handlebars for displaying the fortune (pass in json)
+  //pass name in from index.js to a json file? 
+
+  var reveal_fortunebtn = document.createElement('button')
+  reveal_fortunebtn.innerText = "Reveal Fortune"
+  reveal_fortunebtn.classList.add('fortune-button')
+  fortune_container.appendChild(reveal_fortunebtn)
+
+}
 
   // var userName=""
   // onStart.addEventListener('click', function handleClick() {
