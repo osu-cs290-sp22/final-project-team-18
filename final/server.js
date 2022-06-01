@@ -14,9 +14,25 @@ app.engine('.handlebars', exphbs.engine({
 
 app.set('view engine', '.handlebars');
 
+app.post('')
+
 app.get('/', function(req, res){
+    
     res.status(200).render('findFortune')
 })
+
+app.get('/:name/:id', function(req, res){
+    var name = req.params.name
+    var id = req.params.id
+    var fortune_text = fortunes[id].text;
+
+    res.status(200).render('finalFortune',{
+        name: name,
+        text: fortune_text
+    });
+})
+
+
 
 app.listen(port, function(){
     console.log("== Server is listening on port", port);

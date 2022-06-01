@@ -3,15 +3,35 @@ var close = document.getElementsByClassName("modal-close-button")[0]
 var modal_drop = document.getElementById("modal-backdrop")
 var instructions = document.getElementById("instructions-modal")
 var name = " "
-var button_box = document.getElementsByClassName("fortune-button-box")[0]
+var color = -1
+var first_num = -1
+var second_num = -1
+var fortune_card = document.getElementsByClassName("fortune-card")[0]
+var fortune_container = document.getElementsByClassName("fortune-container")[0]
+var colors = ["Sunshiney Blue","Toxic Positivity Pink","Morally Gray","Indecisively(?) White"];
 
-var buttons = []
+
+
+
+var btn1 = document.getElementById('button-1');
+var btn2 = document.getElementById('button-2');
+var btn3 = document.getElementById('button-3');
+var btn4 = document.getElementById('button-4');
+var onStart=document.getElementsByClassName("modal-start-button")[0];
 
 window.onload = function(){
-  buttons = Array.from(document.getElementsByClassName('fortune-button'))
+  
+  btn1.innerText = colors[0]
+  btn2.innerText = colors[1]
+  btn3.innerText = colors[2]
+  btn4.innerText = colors[3]
+
 }
 
-console.log("=== close", close)
+btn1.addEventListener('click', color_button_click);
+btn2.addEventListener('click', color_button_click);
+btn3.addEventListener('click', color_button_click);
+btn4.addEventListener('click', color_button_click);
 
 close.addEventListener('click', function handleClick() {
     modal_drop.style.display = "none";
@@ -22,129 +42,78 @@ start.addEventListener('click', function handleClick() {
   modal_drop.style.display = "none";
   instructions.style.display="none";
   name = document.getElementById("name-input").value;
+  log_vars();
   
 });
 
-function changeBtn_value(btn,val){
- btn.innerText=val;
-}
+function color_button_click(index) {
+  // todo get button that was clicked
+  // store text of button in volor variable
 
+  var color_button = event.target
+  color = color_button.innerText
+  log_vars(); 
 
-function changeInstruction(){
-var instr=document.getElementsByClassName("fortune-button-box game-box");
-instr.innerText="HELLO"
-}
-var numBtclicked=0;
-var userFinalchoice=""
+  btn1.addEventListener('click', number_button_click);
+  btn2.addEventListener('click', number_button_click);
+  btn3.addEventListener('click', number_button_click);
+  btn4.addEventListener('click', number_button_click);
 
-function changeBtn(btn,clicked){
-  numBtclicked++
-  if(btn.innerText=="1"){
-    changeBtn_value(btn,"6")
+  var nums = generate_randnums(8, 4)
 
-  }
-  else if(btn.innerText=="2"){
-    changeBtn_value(btn,"8")
-
-  }
-  else if(btn.innerText=="3"){
-    changeBtn_value(btn,"5")
-
-  }
-  else if(btn.innerText=="4"){
-    changeBtn_value(btn,"7")
-
-  }
-  else if(btn.innerText=="5"){
-    changeBtn_value(btn,"4")
-  }
-  else if(btn.innerText=="6"){
-    changeBtn_value(btn,"3")
-
-  }
-  else if(btn.innerText=="7"){
-    changeBtn_value(btn,"2")
-
-  }
-  else if(btn.innerText=="8"){
-    changeBtn_value(btn,"1")
-  }
-  else if(btn.innerText=="Sunshiney Blue"){
-    changeBtn_value(btn,"1")
-
-  }
-  else if(btn.innerText=="Toxic Positivity Pink"){
-    changeBtn_value(btn,"2")
-
-  }
-  else if(btn.innerText=="Morally Gray"){
-    changeBtn_value(btn,"3")
-
-  }
-  else if(btn.innerText=="Indecisively(?) White"){
-    changeBtn_value(btn,"4")
-  }
-  if(numBtclicked == 12){
-    userFinalchoice = clicked.innerText
-    displayFortune()
-    console.log("==user string",userFinalchoice);
-  }
-}
-
-
-var btn1 = document.getElementById('button-1');
-var btn2 = document.getElementById('button-2');
-var btn3 = document.getElementById('button-3');
-var btn4 = document.getElementById('button-4');
-var onStart=document.getElementsByClassName("modal-start-button")[0];
-
-btn1.addEventListener('click', function handleClick() {
-  changeBtn(btn1,btn1)
-  changeBtn(btn2,btn1)
-  changeBtn(btn3,btn1)
-  changeBtn(btn4,btn1)
-});
-btn2.addEventListener('click', function handleClick() {
-  changeBtn(btn1,btn2)
-  changeBtn(btn2,btn2)
-  changeBtn(btn3,btn2)
-  changeBtn(btn4,btn2)
-  });
-
-btn3.addEventListener('click', function handleClick() {
-  changeBtn(btn3,btn3)
-  changeBtn(btn1,btn3)
-  changeBtn(btn2,btn3)
-  changeBtn(btn4,btn3)
-});
-
-btn4.addEventListener('click', function handleClick() {
-  changeBtn(btn4,btn4)
-  changeBtn(btn3,btn4)
-  changeBtn(btn2,btn4)
-  changeBtn(btn1,btn4)
-});
-
-
-function displayFortune(){
-  console.log("works")
-  // document.getElementsByClassName("fortune-container")[0].style.display = "none"
-  for(var i = 0; i < buttons.length; i++){
-    button_box.removeChild(buttons[i])
-  }
-
-  //get fortune to display when the button is clicked 
-  //handlebars for displaying the fortune (pass in json)
-  //pass name in from index.js to a json file? 
-
-  var reveal_fortunebtn = document.createElement('button')
-  reveal_fortunebtn.innerText = "Reveal Fortune"
-  reveal_fortunebtn.classList.add('fortune-button')
-  fortune_container.appendChild(reveal_fortunebtn)
+  btn1.innerText = nums[0]
+  btn2.innerText = nums[1]
+  btn3.innerText = nums[2]
+  btn4.innerText = nums[3]
 
 }
 
-  // var userName=""
-  // onStart.addEventListener('click', function handleClick() {
-  //   userName=document.getElementById("name-input").value;
-  // });
+function log_vars(){
+  console.log("-----------------------");
+  console.log("name: ", name);
+  console.log("color: ", color);
+  console.log("first num: ", first_num);
+  console.log("second num:", second_num);
+  console.log("-----------------------");
+}
+
+function number_button_click(index){
+
+  var num_button = event.target
+  if(first_num === -1){
+    first_num = num_button.innerText
+  } else if(second_num === -1){
+    second_num = num_button.innerText
+  } else{
+    var url = document.URL
+    url = url + name + "/"+ second_num
+    console.log("new url: ", url)
+    window.location.href = url
+    return; 
+  }
+  
+  log_vars();
+
+  var nums = generate_randnums(8, 4)
+
+  btn1.innerText = nums[0]
+  btn2.innerText = nums[1]
+  btn3.innerText = nums[2]
+  btn4.innerText = nums[3]
+  
+}
+
+function generate_randnums(max_val, size){
+  var rand_nums = []; 
+  while(rand_nums.length < size){
+    var r = Math.floor(Math.random()* max_val) + 1; 
+    if(rand_nums.indexOf(r) === -1) rand_nums.push(r); 
+  }
+
+
+  return rand_nums
+
+
+}
+
+
