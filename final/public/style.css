@@ -4,10 +4,35 @@ body {
   margin: 0;
   background-color: #F2C5C7;
 }
+title{
+  text-decoration: underline;
+}
 
 a {
   text-decoration: none;
 }
+#display-fortune{
+  text-align: center;
+}
+
+.fortune-box{
+  margin: auto;
+  margin-bottom: 50px;
+  text-align: center; 
+  background:white;
+  border-radius: 100px / 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border:1px solid #999999;
+  color:#6f6f6f;
+  font-size:30px;
+  position: relative;
+  display: inline-block;
+  height: auto;
+  
+}
+
+
 
 .site-title {
   margin: 0;
@@ -29,16 +54,6 @@ a {
   list-style: none;
 }
 
-/*
-#finding-fortune {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-*/
-
-
 
 #fortune-container {
   display: flex;
@@ -52,6 +67,13 @@ a {
   padding:20px;
 }
 
+#player_name{
+  font-size: 30px; 
+  margin-bottom: 10px;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+}
+
 .fortune-button{
   background-color:white;
   border: none;
@@ -59,6 +81,9 @@ a {
   margin-bottom: 50px;
  height: 70px;
   width: 200px;
+  font-family:Montserrat, Helvetica, sans-serif ;
+  font-size: 16px;
+  color: black 
 
 }
 

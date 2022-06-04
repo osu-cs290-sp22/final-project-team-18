@@ -24,12 +24,14 @@ app.get('/', function(req, res){
 app.get('/:name/:id', function(req, res){
     var name = req.params.name
     var id = req.params.id
+    
     var fortune_text = fortunes[id].text;
 
     res.status(200).render('finalFortune',{
         name: name,
         text: fortune_text
     });
+    console.log("===id: ",id)
 })
 
 

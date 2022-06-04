@@ -10,7 +10,15 @@ var fortune_card = document.getElementsByClassName("fortune-card")[0]
 var fortune_container = document.getElementsByClassName("fortune-container")[0]
 var colors = ["Sunshiney Blue","Toxic Positivity Pink","Morally Gray","Indecisively(?) White"];
 
+var instBt = document.getElementById("navlink-instructions")
 
+instBt.addEventListener('click', function handleClick(event) {
+  modal_drop.style.display = "block";
+  instructions.style.display="block";
+  document.getElementsByClassName("name-input-element")[0].style.display="none";
+  start.style.display="none";  
+  event.preventDefault()
+});
 
 
 var btn1 = document.getElementById('button-1');
@@ -39,9 +47,16 @@ close.addEventListener('click', function handleClick() {
 });
 
 start.addEventListener('click', function handleClick() {
-  modal_drop.style.display = "none";
-  instructions.style.display="none";
-  name = document.getElementById("name-input").value;
+  var name_input = document.getElementById("name-input").value;
+  if(name_input==""){
+    alert("Please enter a name to begin.")
+  }
+  else{
+    modal_drop.style.display = "none";
+    instructions.style.display="none";
+    name=name_input
+  }
+
   log_vars();
   
 });
@@ -86,7 +101,7 @@ function number_button_click(index){
     second_num = num_button.innerText
   } else{
     var url = document.URL
-    url = url + name + "/"+ second_num
+    url = url + name + "/"+ (color-1)
     console.log("new url: ", url)
     window.location.href = url
     return; 
@@ -115,5 +130,3 @@ function generate_randnums(max_val, size){
 
 
 }
-
-
