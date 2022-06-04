@@ -14,14 +14,41 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" charset="utf-8" defer></script>
         <script src="/index.js" charset="utf-8" defer></script>
         <script src="/finalFortune.js" charset="utf-8" defer></script>
-       
+
     </head>
 
     <body>
       {{>header}}
       {{{body}}}
-    </body>
 
+      <div id="modal-backdrop2" class="hidden"></div>
+          <div id="create-fortune-modal" class="hidden">
+            <div class="modal-dialog2">
+
+              <div class="modal-header2">
+                <h3>Create your own fortune!</h3>
+                <button type="button" class="modal-close-button2">&times;</button>
+              </div>
+
+              <div class="modal-body2">
+                <div class="fortune-input-element">
+                  <label for="fortune-text-input">Fortune text</label>
+                  <textarea id="fortune-text-input"></textarea>
+                </div>
+                <div class="fortune-input-element">
+                  <label for="fortune-ID-input">ID #</label>
+                  <input type="text" id="twit-ID-input">
+                </div>
+              </div>
+
+              <div class="modal-footer2">
+                <button type="button" class="modal-cancel-button2">Cancel</button>
+                <button type="button" class="modal-accept-button2">Create Fortune</button>
+              </div>
+
+            </div>
+          </div>
+    </body>
 
 
 </html>

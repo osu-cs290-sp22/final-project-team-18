@@ -2,6 +2,8 @@ var start = document.getElementsByClassName("modal-start-button")[0]
 var close = document.getElementsByClassName("modal-close-button")[0]
 var modal_drop = document.getElementById("modal-backdrop")
 var instructions = document.getElementById("instructions-modal")
+var modal_drop2 = document.getElementById("modal-backdrop2")
+var create = document.getElementById("create-fortune-modal")
 var name = " "
 var color = -1
 var first_num = -1
@@ -13,13 +15,23 @@ var colors = ["Sunshiney Blue","Toxic Positivity Pink","Morally Gray","Indecisiv
 var instBt = document.getElementById("navlink-instructions")
 
 instBt.addEventListener('click', function handleClick(event) {
+  console.log("hello!")
   modal_drop.style.display = "block";
   instructions.style.display="block";
   document.getElementsByClassName("name-input-element")[0].style.display="none";
-  start.style.display="none";  
+  start.style.display="none";
   event.preventDefault()
 });
 
+
+var addFortBt = document.getElementById("navlink-create")
+
+addFortBt.addEventListener('click', function handleClick(event) {
+  console.log("hello!")
+  modal_drop2.style.display = "block";
+  create.style.display="block";
+  event.preventDefault()
+});
 
 var btn1 = document.getElementById('button-1');
 var btn2 = document.getElementById('button-2');
@@ -28,7 +40,7 @@ var btn4 = document.getElementById('button-4');
 var onStart=document.getElementsByClassName("modal-start-button")[0];
 
 window.onload = function(){
-  
+
   btn1.innerText = colors[0]
   btn2.innerText = colors[1]
   btn3.innerText = colors[2]
@@ -58,7 +70,7 @@ start.addEventListener('click', function handleClick() {
   }
 
   log_vars();
-  
+
 });
 
 function color_button_click(index) {
@@ -67,7 +79,7 @@ function color_button_click(index) {
 
   var color_button = event.target
   color = color_button.innerText
-  log_vars(); 
+  log_vars();
 
   btn1.addEventListener('click', number_button_click);
   btn2.addEventListener('click', number_button_click);
@@ -104,9 +116,9 @@ function number_button_click(index){
     url = url + name + "/"+ (color-1)
     console.log("new url: ", url)
     window.location.href = url
-    return; 
+    return;
   }
-  
+
   log_vars();
 
   var nums = generate_randnums(8, 4)
@@ -115,14 +127,14 @@ function number_button_click(index){
   btn2.innerText = nums[1]
   btn3.innerText = nums[2]
   btn4.innerText = nums[3]
-  
+
 }
 
 function generate_randnums(max_val, size){
-  var rand_nums = []; 
+  var rand_nums = [];
   while(rand_nums.length < size){
-    var r = Math.floor(Math.random()* max_val) + 1; 
-    if(rand_nums.indexOf(r) === -1) rand_nums.push(r); 
+    var r = Math.floor(Math.random()* max_val) + 1;
+    if(rand_nums.indexOf(r) === -1) rand_nums.push(r);
   }
 
 
