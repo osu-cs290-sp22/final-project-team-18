@@ -1,7 +1,8 @@
-[
+{
+  "forts": [
     {
       "text": "I predict that full points will be given on this web dev final! What a lucky day.",
-      "id":"1"
+      "id": "1"
     },
     {
       "text": "404! Fortune not found! Your day is in for a surprise.",
@@ -9,27 +10,31 @@
     },
     {
       "text": "Bad luck headed you way! Make sure you wear #6B8E23.",
-      "id":"3"
+      "id": "3"
     },
     {
       "text": "May 4th is your luck day! May the force be with you.",
-      "id":"4"
+      "id": "4"
     },
     {
       "text": "You're gonna need all the luck you can get. HAGS???",
-      "id":"5"
+      "id": "5"
     },
     {
       "text": "01110011 01101100 01100001 01111001 00100001 00001010? Encode this and you'll have great year.",
-      "id":"6"
+      "id": "6"
     },
     {
       "text": "Rizaelnig you can raed this mepsislled fnurote wlil be the hgihgliht of yuor day",
-      "id":"7"
+      "id": "7"
     },
     {
       "text": " If you can walk up the LINC stairs without breaking a sweat, you will have a great year. ",
-      "id":"8"
+      "id": "8"
+    },
+    {
+      "text": "test test",
+      "id": "9"
     }
   ]
-  
+}
