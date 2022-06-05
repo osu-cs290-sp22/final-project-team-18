@@ -29,10 +29,7 @@ a {
   position: relative;
   display: inline-block;
   height: auto;
-
 }
-
-
 
 .site-title {
   margin: 0;
@@ -209,6 +206,113 @@ a {
 
 .modal-footer .modal-start-button:hover {
   background-color: #eee;
+}
+
+
+
+
+#modal-backdrop2 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, .85);
+}
+
+#create-fortune-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+}
+
+.modal-header2 {
+  position: relative;
+  padding: 10px 20px;
+}
+
+.modal-header2 h3 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.modal-close-button2 {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+.modal-dialog2 {
+  width: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px;
+}
+.modal-body2 {
+  /* padding: 20px;
+  width: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px; */
+  padding: 20px;
+}
+
+.fortune-input-element {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.fortune-ID-input label {
+  font-weight: 600;
+  flex: 1 75px;
+  margin-right: 10px;
+}
+
+.fortune-ID-input input,
+.fortune-ID-input textarea {
+  flex: 6 200px;
+  padding: 8px;
+  font-size: 20px;
+  border: 1px solid #aaa;
+}
+
+.fortune-ID-input textarea {
+  min-height: 64px;
+}
+
+.modal-footer2 {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 10px 20px 10px;
+}
+
+.modal-footer2 button {
+  font-size: 20px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 50px;
+  cursor: pointer;
+  font-family: Montserrat, Helvetica, sans-serif;
 }
 
 #create-fortune-button {
