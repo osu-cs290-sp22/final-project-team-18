@@ -10,7 +10,6 @@ var port = process.env.PORT || 3000;
 
 app.use(express.urlencoded());
 app.use(express.static('public'));
-app.use(express.urlencoded());
 app.use(express.json())
 
 app.engine('.handlebars', exphbs.engine({
@@ -19,26 +18,14 @@ app.engine('.handlebars', exphbs.engine({
 
 app.set('view engine', '.handlebars');
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 702ca05482b0c81083bf6b488ccafc54b5e57b03
 app.get('/', function(req, res){
-
     res.status(200).render('findFortune')
 })
 
 app.get('/:name/:id', function(req, res){
     var name = req.params.name
     var id = req.params.id
-<<<<<<< HEAD
-
-    var fortune_text = fortunes[id].text;
-=======
-    
     var fortune_text = fortunes.forts[id].text;
->>>>>>> 702ca05482b0c81083bf6b488ccafc54b5e57b03
-
     res.status(200).render('finalFortune',{
         name: name,
         text: fortune_text

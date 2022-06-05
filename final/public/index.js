@@ -27,11 +27,32 @@ instBt.addEventListener('click', function handleClick(event) {
 var addFortBt = document.getElementById("navlink-create")
 
 addFortBt.addEventListener('click', function handleClick(event) {
-  console.log("hello!")
   modal_drop2.style.display = "block";
   create.style.display="block";
   event.preventDefault()
+  handleCreateClick()
 });
+
+function handleCreateClick() {
+  var text = document.getElementById('fortune-text-input').value.trim()
+  var id = document.getElementById('fortune-ID-input').value.trim()
+  if (!text || !id) {
+    alert("You must fill in both fields!")
+    console.log("hey")
+  }
+  else {
+    //if (res.status === 200) {
+      var finalFortuneTemplate = Handlebars.templates.finalFortune
+      var newFortuneHTML = finalFortuneTemplate({
+        text: photoURL
+        //id: caption
+      })
+      var finalFortuneContainer = document.querySelector('display-fortune')
+        finalFortuneContainer.insertAdjacentHTML('beforeend', newFortuneHTML)
+        //return res.text()
+    }
+  //}
+}
 
 var btn1 = document.getElementById('button-1');
 var btn2 = document.getElementById('button-2');
