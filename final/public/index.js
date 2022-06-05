@@ -26,6 +26,7 @@ instBt.addEventListener('click', function handleClick(event) {
 
 var addFortBt = document.getElementById("navlink-create")
 
+var x_fort = document.getElementsByClassName("modal-close-button2")[0]
 var close_fort = document.getElementsByClassName("modal-cancel-button2")[0]
 var create_fort = document.getElementsByClassName("modal-accept-button2")[0]
 
@@ -38,12 +39,15 @@ close_fort.addEventListener('click', function handleClick(event) {
   modal_drop2.style.display = "none";
   create.style.display="none";
 })
+
+x_fort.addEventListener('click', function handleClick(event) {
+  modal_drop2.style.display = "none";
+  create.style.display="none";
+})
+
 create_fort.addEventListener('click', function handleClick(event) {
   event.preventDefault()
   handleCreateClick()
-  
-  
-  
 })
 
 function handleCreateClick() {
@@ -55,7 +59,7 @@ function handleCreateClick() {
     console.log("hey")
   }
   else {
-    
+
     fetch(reqUrl, {
       method: 'POST',
       body: JSON.stringify({
@@ -69,13 +73,13 @@ function handleCreateClick() {
       if(res.status==200){
         var newfinalFortune = Handlebars.templates.finalFortune({
           name:"Sabs",
-          text: text_in 
+          text: text_in
         })
         console.log("== twitBox:",newfinalFortune )
         var finalFortuneContainer = document.querySelector('display-fortune')
         finalFortuneContainer.insertAdjacentHTML('beforeend', newfinalFortune)
         return res.text()
-      } 
+      }
     else {
       alert("An error occurred saving your photo card")
     }
@@ -88,11 +92,11 @@ function handleCreateClick() {
   // }).catch(function(err){
   //   alert("An error occurred saving your photo card from catch() clause")
   // })
-  
+
 
   modal_drop2.style.display = "none";
   create.style.display="none";
-      
+
       }
   //}
 }
