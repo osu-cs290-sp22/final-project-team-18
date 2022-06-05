@@ -26,31 +26,74 @@ instBt.addEventListener('click', function handleClick(event) {
 
 var addFortBt = document.getElementById("navlink-create")
 
+var close_fort = document.getElementsByClassName("modal-cancel-button2")[0]
+var create_fort = document.getElementsByClassName("modal-accept-button2")[0]
+
 addFortBt.addEventListener('click', function handleClick(event) {
   modal_drop2.style.display = "block";
   create.style.display="block";
-  event.preventDefault()
-  handleCreateClick()
 });
 
+close_fort.addEventListener('click', function handleClick(event) {
+  modal_drop2.style.display = "none";
+  create.style.display="none";
+})
+create_fort.addEventListener('click', function handleClick(event) {
+  event.preventDefault()
+  handleCreateClick()
+  
+  
+  
+})
+
 function handleCreateClick() {
-  var text = document.getElementById('fortune-text-input').value.trim()
-  var id = document.getElementById('fortune-ID-input').value.trim()
-  if (!text || !id) {
+  var text_in = document.getElementById('fortune-text-input').value.trim()
+  var id_in ="9"
+  var reqUrl="/addFortune"
+  if (!text_in || !id_in) {
     alert("You must fill in both fields!")
     console.log("hey")
   }
   else {
-    //if (res.status === 200) {
-      var finalFortuneTemplate = Handlebars.templates.finalFortune
-      var newFortuneHTML = finalFortuneTemplate({
-        text: photoURL
-        //id: caption
-      })
-      var finalFortuneContainer = document.querySelector('display-fortune')
-        finalFortuneContainer.insertAdjacentHTML('beforeend', newFortuneHTML)
-        //return res.text()
+    
+    fetch(reqUrl, {
+      method: 'POST',
+      body: JSON.stringify({
+        id: id_in,
+        text: text_in
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(function(res){
+      if(res.status==200){
+        var newfinalFortune = Handlebars.templates.finalFortune({
+          name:"Sabs",
+          text: text_in 
+        })
+        console.log("== twitBox:",newfinalFortune )
+        var finalFortuneContainer = document.querySelector('display-fortune')
+        finalFortuneContainer.insertAdjacentHTML('beforeend', newfinalFortune)
+        return res.text()
+      } 
+    else {
+      alert("An error occurred saving your photo card")
     }
+  })
+  window.location.href = reqUrl
+
+  // }).then(function(body){
+  //   console.log("== response body:", body)
+
+  // }).catch(function(err){
+  //   alert("An error occurred saving your photo card from catch() clause")
+  // })
+  
+
+  modal_drop2.style.display = "none";
+  create.style.display="none";
+      
+      }
   //}
 }
 

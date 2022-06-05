@@ -12,6 +12,7 @@
 
         <link rel="stylesheet" href="/style.css" media="screen">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" charset="utf-8" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.runtime.js" integrity="sha512-0bRnmqp8jww8h5q9khSJSMF7kUFVuzAiVpbwCr1+kot0yAwtVukdBQGznIvytgpFzy6wEgFbjbNSO2xcSBHTWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="/index.js" charset="utf-8" defer></script>
         <script src="/finalFortune.js" charset="utf-8" defer></script>
 
@@ -31,14 +32,17 @@
               </div>
 
               <div class="modal-body2">
+
                 <div class="fortune-input-element">
                   <label for="fortune-text-input">Fortune text</label>
-                  <textarea id="fortune-text-input"></textarea>
+                  <input type="text" id="fortune-text-input">
                 </div>
+
                 <div class="fortune-input-element">
                   <label for="fortune-ID-input">ID #</label>
                   <input type="text" id="twit-ID-input">
                 </div>
+             
               </div>
 
               <div class="modal-footer2">
